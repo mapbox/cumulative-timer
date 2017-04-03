@@ -1,0 +1,25 @@
+{
+  "name": "cumulative-timer",
+  "version": "1.0.0",
+  "description": "A simple cumulative timer for benchmarking Node apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint index.js"
+  },
+  "keywords": [
+    "timer",
+    "node"
+  ],
+  "author": "Vladimir Agafonkin",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-mourner": "^2.0.1"
+  },
+  "eslintConfig": {
+    "extends": "mourner",
+    "rules": {
+        "operator-linebreak": ["error", "before", {"overrides": {}}]
+    }
+  }
+}
