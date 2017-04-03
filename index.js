@@ -13,7 +13,7 @@ var now = typeof performance !== 'undefined' && performance.now
 
 function start(id) {
     if (started[id]) {
-        throw new Error(`Duplicate timer start: ${id}`);
+        throw new Error('Duplicate timer start: ' + id);
     }
     started[id] = now();
     times[id] = times[id] || 0;
@@ -21,7 +21,7 @@ function start(id) {
 
 function stop(id) {
     if (!started[id]) {
-        throw new Error(`Stopping timer that has not started: ${id}`);
+        throw new Error('Stopping timer that has not started: ' + id);
     }
     times[id] += now() - started[id];
     started[id] = null;
@@ -31,8 +31,8 @@ function log() {
     var total = times.total;
     for (var id in times) {
         var t = leftpad(Math.round(times[id]), 6);
-        var p = total ? `${leftpad((1e2 * times[id] / total).toFixed(2), 6)}% ` : '';
-        console.log(`${t}ms ${p}%${id}`);
+        var p = total ? leftpad((1e2 * times[id] / total).toFixed(2), 6) + '% ' : '';
+        console.log(t + 'ms ' + p + id);
     }
 }
 
