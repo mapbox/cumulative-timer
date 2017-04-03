@@ -7,9 +7,9 @@ exports.log = log;
 var times = exports.times = {};
 var started = exports.started = {};
 
-var now = typeof performance !== 'undefined'
-    ? () => performance.now()
-    : () => { var hr = process.hrtime(); return hr[0] * 1e3 + hr[1] / 1e6; };
+var now = typeof performance !== 'undefined' && performance.now
+    ? function () { return performance.now(); }
+    : function () { var hr = process.hrtime(); return hr[0] * 1e3 + hr[1] / 1e6; };
 
 function start(id) {
     if (started[id]) {
