@@ -4,12 +4,13 @@ A simple cumulative timer for benchmarking.
 Similar to `console.time` & `console.timeEnd`,
 but accumulates time for a particular id over many calls.
 
-### API
+### Example
 
 ```js
 var timer = require('cumulative-timer');
 
 timer.start('total');
+
 timer.start('foo');
 ...
 timer.end('foo');
@@ -17,6 +18,11 @@ timer.end('foo');
 timer.start('bar');
 ...
 timer.end('bar');
+
+timer.start('foo');
+...
+timer.end('foo');
+
 timer.end('total');
 
 timer.log();
