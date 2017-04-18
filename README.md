@@ -11,11 +11,11 @@ var timer = require('cumulative-timer');
 
 timer.start('total');
 
-timer.start('foo'); /* ... */ timer.end('foo');
-timer.start('bar'); /* ... */ timer.end('bar');
-timer.start('foo'); /* ... */ timer.end('foo');
+timer.start('foo'); /* ... */ timer.stop('foo');
+timer.start('bar'); /* ... */ timer.stop('bar');
+timer.start('foo'); /* ... */ timer.stop('foo');
 
-timer.end('total');
+timer.stop('total');
 
 timer.log();
 ```
